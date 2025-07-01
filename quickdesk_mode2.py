@@ -11,8 +11,8 @@ def run_mode2_1(folder_path):
     move_window_exact("Visual Studio Code", 0, 0, 1920, 1080)
 
     # จอรอง (x เริ่มที่ 1920)
-    move_window_exact("Google Chrome", 1920, 0, 960, 1080)         # ฝั่งซ้าย
-    move_window_exact("YouTube", 1920 + 960, 0, 960, 1080)         # ฝั่งขวา
+    move_window_exact("Google Chrome", 1920, 0, 960, 1070)         # ฝั่งซ้าย
+    move_window_exact("YouTube", 1920 + 960, 0, 960, 1070)         # ฝั่งขวา
 
 def run_mode2_2(folder_path):
     launch_chrome(["https://chat.openai.com", "https://www.youtube.com"])

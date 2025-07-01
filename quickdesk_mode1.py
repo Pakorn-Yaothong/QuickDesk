@@ -1,5 +1,5 @@
 from utils.app_launcher import launch_vscode, launch_chrome
-from utils.window_manager import move_window_exact  
+from utils.window_manager import move_window_exact
 import time
 
 def run_mode1(folder_path):
@@ -8,6 +8,12 @@ def run_mode1(folder_path):
 
     time.sleep(3.0)
 
-    # หน้าจอหลัก 1920x1080
-    move_window_exact("Google Chrome", 0, 0, 970, 1080)
-    move_window_exact("Visual Studio Code", 960, 0, 960, 1080)
+    # Manual Screen Size
+    SCREEN_WIDTH = 1920
+    SCREEN_HEIGHT = 1080
+    TASKBAR_HEIGHT = 48
+    HEIGHT = SCREEN_HEIGHT - TASKBAR_HEIGHT
+
+    # Manual Layout
+    move_window_exact("Google Chrome", -5, 0, int(973.5), int(HEIGHT + 7))
+    move_window_exact("Visual Studio Code", 960, 0, 950, HEIGHT)
