@@ -1,5 +1,3 @@
-# quickdesk_main.py
-
 import sys
 import subprocess
 import os
@@ -7,6 +5,8 @@ from PyQt5.QtWidgets import (
     QApplication, QWidget, QPushButton, QVBoxLayout, QFileDialog,
     QMessageBox, QComboBox, QLabel
 )
+
+from quickdesk_mode1 import run_mode1  # ✅ import ครั้งเดียวพอ
 
 class QuickDeskMain(QWidget):
     def __init__(self):
@@ -30,7 +30,7 @@ class QuickDeskMain(QWidget):
 
         # Execute button
         self.start_btn = QPushButton("Launch QuickDesk")
-        self.start_btn.clicked.connect(self.run_mode)
+        self.start_btn.clicked.connect(self.run_mode)  # ✅ เชื่อมกับของจริง
 
         layout.addWidget(QLabel("Select a mode:"))
         layout.addWidget(self.mode_combo)
@@ -46,11 +46,20 @@ class QuickDeskMain(QWidget):
             self.selected_folder = folder
 
     def run_mode(self):
-        QMessageBox.information(
-            self,
-            "QuickDesk",
-            f"Selected mode: {self.mode_combo.currentText()}\nFolder: {self.selected_folder or 'Not selected'}"
-        )
+        if not self.selected_folder:
+            QMessageBox.warning(self, "No folder", "Please select a folder first.")
+            return
+
+        mode_index = self.mode_combo.currentIndex()
+        
+        if mode_index == 0:  # Mode 1
+            run_mode1(self.selected_folder)
+        else:
+            QMessageBox.information(
+                self,
+                "Coming Soon",
+                "This mode is not implemented yet."
+            )
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
