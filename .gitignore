@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.pyc
+
+# Build outputs
+dist/
+build/
+*.spec
+
+# VSCode
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
