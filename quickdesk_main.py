@@ -19,17 +19,14 @@ class QuickDeskMain(QWidget):
 
         self.selected_folder = None
 
-        # Layout หลัก
         main_layout = QVBoxLayout()
         main_layout.setAlignment(Qt.AlignTop)
 
-        # หัวข้อ
         title = QLabel("🚀 Launch Your Workspace Faster!")
         title.setAlignment(Qt.AlignCenter)
         title.setStyleSheet("font-size: 18px; font-weight: bold; margin-bottom: 12px;")
         main_layout.addWidget(title)
 
-        # Drop-down เลือกโหมด
         self.mode_combo = QComboBox()
         self.mode_combo.addItems([
             "Mode 1 (Single Display)",
@@ -40,13 +37,11 @@ class QuickDeskMain(QWidget):
         main_layout.addWidget(QLabel("Choose Mode:"))
         main_layout.addWidget(self.mode_combo)
 
-        # ปุ่มเลือกโฟลเดอร์
         self.folder_btn = QPushButton("📂 Select Folder for VSCode")
         self.folder_btn.clicked.connect(self.select_folder)
         self.folder_btn.setStyleSheet("padding: 8px; font-size: 14px;")
         main_layout.addWidget(self.folder_btn)
 
-        # ปุ่มเริ่มใช้งาน
         self.launch_btn = QPushButton("🚀 Launch QuickDesk")
         self.launch_btn.clicked.connect(self.run_mode)
         self.launch_btn.setStyleSheet(
@@ -78,6 +73,6 @@ class QuickDeskMain(QWidget):
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     win = QuickDeskMain()
-    win.setWindowFlags(win.windowFlags() & ~Qt.WindowContextHelpButtonHint)  # ลบปุ่ม ?
+    win.setWindowFlags(win.windowFlags() & ~Qt.WindowContextHelpButtonHint)  
     win.show()
     sys.exit(app.exec_())
