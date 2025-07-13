@@ -85,16 +85,39 @@ python quickdesk_main.py
 
 - OS: **Windows only**
 - Pre-installed applications (fixed paths, editable in `utils/app_launcher.py`):
-  - **VSCode**
-    ```
-    C:\Users\<YourUsername>\AppData\Local\Programs\Microsoft VS Code\Code.exe
-    ```
-  - **Chrome**
-    ```
-    C:\Program Files\Google\Chrome\Application\chrome.exe
-    ```
-  - **Discord**
-    (Standard install via `%LOCALAPPDATA%\Discord\Update.exe`)
+  - **VSCode**  
+    `C:\Users\<YourUsername>\AppData\Local\Programs\Microsoft VS Code\Code.exe`
+  - **Chrome**  
+    `C:\Program Files\Google\Chrome\Application\chrome.exe`
+  - **Discord**  
+    Standard install via `%LOCALAPPDATA%\Discord\Update.exe`
+
+---
+
+## 🏗 Build as Windows Executable (.exe)
+
+To package QuickDesk as a standalone Windows program:
+
+### 1. Install PyInstaller
+
+```bash
+pip install pyinstaller
+```
+
+### 2. Build the `.exe`
+
+```bash
+pyinstaller --noconfirm --windowed --icon=assets/quickdesk_icon.ico quickdesk_main.py
+```
+
+> Output: `dist/quickdesk_main/quickdesk_main.exe`
+
+### 3. Finalize for Distribution
+
+- Copy the `assets/` folder into `dist/quickdesk_main/`
+- Zip the folder or share as-is
+
+✅ Users can now run `quickdesk_main.exe` without needing Python installed.
 
 ---
 
@@ -108,6 +131,6 @@ GitHub: [@Pakorn-Yaothong](https://github.com/Pakorn-Yaothong)
 
 ## 📄 License
 
-TeamDev PSU
+TeamDev PSU  
 Copyright (c) 2025  
 **Pakorn Yaothong**
